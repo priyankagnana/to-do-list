@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #000000, #b8860b);
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            color: white;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+        h2, h3 {
+            color: whitesmoke;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ffd700;
+            background: transparent;
+            color: white;
+        }
+        button {
+            background-color:#c37516;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quote {
+            font-style: italic;
+            color: #ffd700;
+            margin-top: 10px;
+        }
+        .calendar {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>✅ To-Do List</h2>
+        
+        <div class="section" id="tasks">
+            <input type="text" placeholder="Enter task">
+        </div>
+        <button onclick="addTask()">➕ Add Task</button>
+        
+        <div class="section">
+            <h3>💧 Water Intake</h3>
+            <input type="number" min="0" max="10" placeholder="Cups drank today">
+        </div>
+        
+        <div class="section">
+            <h3>📝 Remark of the Day</h3>
+            <textarea placeholder="Write your thoughts???---- Start writing, no matter what. The water does not flow until the faucet is turned on"></textarea>
+        </div>
+        
+        <div class="section">
+            <h3>📚 Lessons Learned</h3>
+            <textarea placeholder="What did you learn today?----A day without learning is a day wasted."></textarea>
+        </div>
+        
+        <div class="section">
+            <h3>⚠️ Mistakes to Avoid</h3>
+            <textarea placeholder="What mistakes do you want to avoid from now?----Mistakes are always forgivable if one has the courage to admit them."></textarea>
+        </div>
+        
+        <div class="section">
+            <h3>💡 Daily Motivation -- quote of the day </h3>
+            <p class="quote" id="quote"></p>
+        </div>
+        
+        <div class="section">
+            <h3>📅 Today's Date--- never late to start </h3>
+            <p class="calendar" id="calendar"></p>
+        </div>
+    </div>
+    
+    <script>
+        const quotes = [
+            "Believe in yourself and all that you are.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Act as if what you do makes a difference. It does.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "You are never too old to set another goal or to dream a new dream."
+            
+        ];
+        
+        document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+        
+        const today = new Date();
+        document.getElementById("calendar").innerText = today.toDateString();
+
+        function addTask() {
+            const taskContainer = document.getElementById("tasks");
+            const newTask = document.createElement("input");
+            newTask.type = "text";
+            newTask.placeholder = "Enter task";
+            taskContainer.appendChild(newTask);
+        }
+    </script>
+</body>
+</html>
